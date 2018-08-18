@@ -1,0 +1,26 @@
+create repository git-r1
+end repository
+
+create repository git-r2
+end repository
+
+match /r1/repos
+  repository git-r1
+  branch master
+end match
+
+match /r2/repos/Live
+  repository git-r2
+  branch live
+end match
+
+match /r2/repos
+  repository git-r2
+  branch master
+end match
+
+match /r1
+end match
+
+match /r2
+end match
