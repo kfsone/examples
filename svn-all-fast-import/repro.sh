@@ -117,9 +117,8 @@ while [ ${step} -lt ${REVISIONS} ]; do
   }
 
   # Test if there are any fast_import crashes
-  crashes=$(echo git-r*/fast_import_crash_*)
-  if [ -n "$crashes" ]; then
-    die "Step $step: Fast import crashed: $crashes"
+  if compgen -G git-r*/fast_import_crash_*; then
+    die "Step $step: Fast import crashed"
   fi
 
   step=$((step + 1))
